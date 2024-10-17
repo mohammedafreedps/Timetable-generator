@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "136643932791",
+    "project_id": "timetable-generator-75dea",
+    "storage_bucket": "timetable-generator-75dea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136643932791:android:5b49f81f3ea6a39da08c72",
+        "android_client_info": {
+          "package_name": "com.example.ttg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136643932791-dndkm8jrbtddkiccfopj9m735epesmbm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ttg",
+            "certificate_hash": "bde2919c78d7958ba2789593991dcc7759f266a0"
+          }
+        },
+        {
+          "client_id": "136643932791-vkrfmtu4pfjcue6n8oc0n1525n6b9svk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqu_boznRqPCVl3b-5Gy-KMy2nGTDTEm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136643932791-vkrfmtu4pfjcue6n8oc0n1525n6b9svk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "136643932791-7jatnqpeir82fohf9e5lsih0mn8hko12.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ttg"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
