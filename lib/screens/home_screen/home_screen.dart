@@ -1,20 +1,47 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ttg/blocs/blocs.dart';
-import 'package:ttg/main.dart';
+import 'package:ttg/screens/courses_screen/courses_screen.dart';
+import 'package:ttg/screens/dashboard_screen/dashboard_screen.dart';
+import 'package:ttg/screens/staff_screen/staff_screen.dart';
+import 'package:ttg/styles/app_styles.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _screens = [
+    DashboardScreen(),
+    CoursesScreen(),
+    StaffScreen()
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(onPressed: (){
-          context.read<AuthBloc>().add(SignOutButtonPressedEvent());
-        }, child: Text('Logout')),
+    return SafeArea(
+      child: Scaffold(
+        body: _screens.elementAt(_selectedIndex),
+        bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: AppColors.primaryColor,
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.dashboard), label: 'DashBoard'),
+            BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Courses'),
+            BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Staff'),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }

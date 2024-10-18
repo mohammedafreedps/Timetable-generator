@@ -1,9 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ttg/blocs/blocs.dart';
-import 'package:ttg/main.dart';
 import 'package:ttg/styles/app_styles.dart';
 import 'package:ttg/widgets/app_button.dart';
 

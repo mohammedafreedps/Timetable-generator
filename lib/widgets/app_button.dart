@@ -4,10 +4,10 @@ import 'package:ttg/utils/constants.dart';
 
 
 class AppButton extends StatelessWidget {
-  double width;
-  double height;
-  String lable;
-  Function? function;
+  final double width;
+  final double height;
+  final String lable;
+  final Function? function;
   AppButton({required this.lable,this.width = 190,this.height = 50,this.function});
 
   @override
