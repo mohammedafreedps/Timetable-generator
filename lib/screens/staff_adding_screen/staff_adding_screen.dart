@@ -31,9 +31,8 @@ class _StaffAddingScreenState extends State<StaffAddingScreen> {
   void didChangeDependencies() {
     if (widget.index != null) {
       staffNameController.text = StaffBloc.staffs[widget.index!].name;
-    } 
-      _loading();
-    
+    }
+    _loading();
     super.didChangeDependencies();
   }
 
@@ -42,9 +41,17 @@ class _StaffAddingScreenState extends State<StaffAddingScreen> {
       context.read<CourseBloc>().add(FechCoursesDataEvent());
       await Future.delayed(const Duration(seconds: 2));
     }
-    context.read<SelectCourseBloc>().add(LoadAllCoursesForSelectingEvent());
+    if (widget.isForEdit != null && widget.isForEdit == true) {
+      context.read<SelectCourseBloc>().add(LoadAllCoursesForSelectingEvent(
+          isForEditing: true,
+          initSelectedCourse: StaffBloc.staffs[widget.index!].courseName));
+      context.read<SelectSubjectBloc>().add(LoadSubjectBaseOnCourses());
+      context.read<StaffAddingBloc>().add(ShowAddedSubjectsForEditEvent(
+          addedSubjectsForEdit: StaffBloc.staffs[widget.index!].subjects));
+    } else {
+      context.read<SelectCourseBloc>().add(LoadAllCoursesForSelectingEvent());
+    }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +59,9 @@ class _StaffAddingScreenState extends State<StaffAddingScreen> {
       listener: (context, state) {
         if (state is LoadedCoursesState) {
           context.read<SelectSubjectBloc>().add(LoadSubjectBaseOnCourses());
-          context.read<StaffAddingBloc>().add(ClearAddedSubjectEvent());
+          if (widget.isForEdit == null) {
+            context.read<StaffAddingBloc>().add(ClearAddedSubjectEvent());
+          }
         }
       },
       child: BlocListener<StaffAddingBloc, StaffAddingState>(
@@ -61,6 +70,9 @@ class _StaffAddingScreenState extends State<StaffAddingScreen> {
             context.read<SelectSubjectBloc>().add(LoadSubjectBaseOnCourses());
           }
           if (state is StaffDataSavedState) {
+            staffNameController.clear();
+            context.read<SelectSubjectBloc>().add(ClearAllSubjectsDataEvent());
+            context.read<SelectCourseBloc>().add(ClearAllSelectionsEvent());
             Navigator.pop(context);
           }
         },
@@ -170,17 +182,20 @@ class _StaffAddingScreenState extends State<StaffAddingScreen> {
                               if (staffNameController.text.trim().isNotEmpty &&
                                   StaffAddingBloc.addedSubjects.isNotEmpty &&
                                   SelectCourseBloc.selectedCourse != null) {
-                                context.read<StaffAddingBloc>().add(
-                                    SaveButtonPressedEvent(
-                                        staffName:
-                                            staffNameController.text.trim()));
-                                staffNameController.clear();
-                                context
-                                    .read<SelectSubjectBloc>()
-                                    .add(ClearAllSubjectsDataEvent());
-                                context
-                                    .read<SelectCourseBloc>()
-                                    .add(ClearAllSelectionsEvent());
+                                if (widget.isForEdit != null &&
+                                    widget.isForEdit == true) {
+                                  context.read<StaffAddingBloc>().add(
+                                      EditedSaveButtonClickedEvent(
+                                          staffID: StaffBloc
+                                              .staffs[widget.index!].id,
+                                          staffName:
+                                              staffNameController.text.trim()));
+                                } else {
+                                  context.read<StaffAddingBloc>().add(
+                                      SaveButtonPressedEvent(
+                                          staffName:
+                                              staffNameController.text.trim()));
+                                }
                               }
                             },
                           );

@@ -11,23 +11,37 @@ class SelectCourseBloc extends Bloc<SelectCourseEvent, SelectCourseState> {
   SelectCourseBloc() : super(SelectCourseInitial()) {
     List<String> courses = [];
     on<LoadAllCoursesForSelectingEvent>((event, emit) {
-       if (CourseBloc.courses.isNotEmpty) {
+      if (CourseBloc.courses.isNotEmpty) {
         courses =
             CourseBloc.courses.map((course) => course.courseName).toList();
-        emit(LoadedCoursesState(
-            courses: courses, selectedCourse: 'Select a Course'));
+
+        if (event.isForEditing != null &&
+            event.isForEditing == true &&
+            event.initSelectedCourse != null) {
+          selectedCourse = event.initSelectedCourse;
+          emit(LoadedCoursesState(
+              courses: courses, selectedCourse: event.initSelectedCourse));
+        } else {
+          emit(LoadedCoursesState(
+              courses: courses, selectedCourse: 'Select a Course'));
+        }
       }
     });
 
-    on<CousesSelectingEvent>((event,emit){
+    on<CousesSelectingEvent>((event, emit) {
       selectedCourse = event.selectedCourses;
-      selectedCourseId = CourseBloc.courses.where((c)=> c.courseName == selectedCourse).toList()[0].courseID;
-      emit(LoadedCoursesState(courses: courses,selectedCourse: event.selectedCourses));
+      selectedCourseId = CourseBloc.courses
+          .where((c) => c.courseName == selectedCourse)
+          .toList()[0]
+          .courseID;
+      emit(LoadedCoursesState(
+          courses: courses, selectedCourse: event.selectedCourses));
     });
 
-    on<ClearAllSelectionsEvent>((event,emit){
+    on<ClearAllSelectionsEvent>((event, emit) {
       courses.clear();
-      emit(LoadedCoursesState(courses: courses,selectedCourse: 'Select a Course'));
+      emit(LoadedCoursesState(
+          courses: courses, selectedCourse: 'Select a Course'));
     });
   }
 }

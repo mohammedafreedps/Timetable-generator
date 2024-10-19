@@ -22,7 +22,6 @@ class SelectSubjectBloc extends Bloc<SelectSubjectEvent, SelectSubjectState> {
           CoursesModel model = matchingCourses.first;  
           subjects = model.subjects;  
           selectedSubject = event.selectedSubject;
-          print(subjects.toString()+'  subjects');
           emit(ShowCourseBasedSubjectsState(subjects: subjects,selectedSubject: selectedSubject));
         } else {
           print('no maching found');

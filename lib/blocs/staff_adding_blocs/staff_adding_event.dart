@@ -16,3 +16,14 @@ class SaveButtonPressedEvent extends StaffAddingEvent{
   final String staffName;
   SaveButtonPressedEvent({required this.staffName});
 }
+
+class ShowAddedSubjectsForEditEvent extends StaffAddingEvent{
+  final List<String> addedSubjectsForEdit;
+  ShowAddedSubjectsForEditEvent({required this.addedSubjectsForEdit});
+}
+
+class EditedSaveButtonClickedEvent extends StaffAddingEvent{
+  final String staffID;
+  final String staffName;
+  EditedSaveButtonClickedEvent({required this.staffName,required this.staffID});
+}

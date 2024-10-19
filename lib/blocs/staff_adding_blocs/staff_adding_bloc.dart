@@ -22,6 +22,11 @@ class StaffAddingBloc extends Bloc<StaffAddingEvent, StaffAddingState> {
       }
     });
 
+    on<ShowAddedSubjectsForEditEvent>((event,emit){
+      addedSubjects.addAll(event.addedSubjectsForEdit);
+      emit(AddedSubjectsState(subjects: addedSubjects.toList()));
+    });
+
     on<ClearAddedSubjectEvent>((event, emit) {
       addedSubjects.clear();
       emit(AddedSubjectsState(subjects: addedSubjects.toList()));
@@ -36,13 +41,21 @@ class StaffAddingBloc extends Bloc<StaffAddingEvent, StaffAddingState> {
       }
     });
 
-    on<SaveButtonPressedEvent>((event,emit){
-      print(event.staffName);
-      print(addedSubjects);
-      print(SelectCourseBloc.selectedCourse);
-      print(SelectCourseBloc.selectedCourseId! + '  course id ok');
+    on<SaveButtonPressedEvent>((event,emit)async{
       emit(StaffDataSavingState());
-      StaffDataHandling.addStaffToDatabase(event.staffName, SelectCourseBloc.selectedCourseId!, addedSubjects.toList());
+      await StaffDataHandling.addStaffToDatabase(event.staffName, SelectCourseBloc.selectedCourseId!, addedSubjects.toList());
+      emit(StaffDataSavedState());
+    });
+
+    on<EditedSaveButtonClickedEvent>((event,emit)async{
+      emit(StaffDataSavingState());
+      if(event.staffID.isNotEmpty && event.staffName.isNotEmpty&&SelectCourseBloc.selectedCourse != null &&addedSubjects.toList().isNotEmpty){
+
+      }else{
+        if(SelectCourseBloc.selectedCourse == null){
+        }
+      }
+      await StaffDataHandling.editStaffDataFromDatabase(event.staffID,event.staffName,SelectCourseBloc.selectedCourse!,addedSubjects.toList());
       emit(StaffDataSavedState());
     });
   }
