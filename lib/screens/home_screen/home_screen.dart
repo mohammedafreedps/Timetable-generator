@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.dashboard), label: 'DashBoard'),
             BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Courses'),
-            BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Staff'),
+            BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Staffs'),
           ],
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,

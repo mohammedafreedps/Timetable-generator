@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:ttg/styles/text_styles.dart';
 
-Widget teachingSubjectsTile() {
+Widget teachingSubjectsTile(int index, String subjectName,Function? deleteFunction) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
     Text(
-      '1. English',
+      '$index. $subjectName',
       style: AppTextStyles.secondaryStyle.copyWith(fontSize: 18),
     ),
-    IconButton(onPressed: () {}, icon: const Icon(Icons.delete))
+    IconButton(onPressed: () {
+      if(deleteFunction != null){
+        deleteFunction();
+      }
+    }, icon: const Icon(Icons.delete))
   ]);
 }
