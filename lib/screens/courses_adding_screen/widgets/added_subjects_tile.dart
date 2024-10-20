@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ttg/styles/app_styles.dart';
+import 'package:ttg/styles/styles.dart';
 
 Widget addedSubjectsTile(Function function, int index, String title) {
   return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ttg/screens/courses_screen/courses_screen.dart';
 import 'package:ttg/screens/dashboard_screen/dashboard_screen.dart';
 import 'package:ttg/screens/staff_screen/staff_screen.dart';
-import 'package:ttg/styles/app_styles.dart';
+import 'package:ttg/styles/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

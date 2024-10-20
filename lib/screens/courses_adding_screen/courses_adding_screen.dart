@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ttg/blocs/blocs.dart';
 import 'package:ttg/screens/courses_adding_screen/widgets/added_subjects_tile.dart';
-import 'package:ttg/styles/app_styles.dart';
+import 'package:ttg/styles/styles.dart';
 import 'package:ttg/utils/constants.dart';
-import 'package:ttg/widgets/app_button.dart';
-import 'package:ttg/widgets/app_circular_progress_indicator.dart';
-import 'package:ttg/widgets/app_textfield.dart';
+import 'package:ttg/widgets/widgets.dart';
 
 class CoursesAddingScreen extends StatefulWidget {
   final bool isForEdit;

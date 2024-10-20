@@ -3,10 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ttg/blocs/blocs.dart';
 import 'package:ttg/screens/courses_adding_screen/courses_adding_screen.dart';
 import 'package:ttg/screens/courses_screen/widgets/courses_tile.dart';
-import 'package:ttg/styles/app_styles.dart';
+import 'package:ttg/styles/styles.dart';
 import 'package:ttg/utils/constants.dart';
-import 'package:ttg/widgets/app_circular_progress_indicator.dart';
-import 'package:ttg/widgets/app_dialog_box.dart';
+import 'package:ttg/widgets/widgets.dart';
 
 class CoursesScreen extends StatelessWidget {
   const CoursesScreen({super.key});

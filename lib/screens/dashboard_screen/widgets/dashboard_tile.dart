@@ -7,7 +7,7 @@ Widget dashboardTile(String courseName,Function onPress){
       Flexible(child: Text(courseName)),
       IconButton(onPressed: (){
         onPress();
-      }, icon: Icon(Icons.generating_tokens))
+      }, icon: const Icon(Icons.generating_tokens))
     ],
   );
 }

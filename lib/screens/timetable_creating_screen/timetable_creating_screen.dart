@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ttg/blocs/staff_blocs/staff_bloc.dart';
-import 'package:ttg/models/courses_model.dart';
-import 'package:ttg/models/timetable_entry_model.dart';
+import 'package:ttg/blocs/blocs.dart';
+import 'package:ttg/models/models.dart';
 import 'package:ttg/screens/timetable_creating_screen/widgets/timetabel_tile.dart';
 import 'package:ttg/services/timeTableCreator.dart';
 import 'package:ttg/utils/constants.dart';

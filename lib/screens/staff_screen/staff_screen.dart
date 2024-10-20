@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ttg/blocs/staff_adding_blocs/staff_adding_bloc.dart';
-import 'package:ttg/blocs/staff_blocs/staff_bloc.dart';
+import 'package:ttg/blocs/blocs.dart';
 import 'package:ttg/screens/staff_adding_screen/staff_adding_screen.dart';
 import 'package:ttg/screens/staff_screen/widgets/staff_tile.dart';
 import 'package:ttg/utils/constants.dart';
-import 'package:ttg/widgets/app_circular_progress_indicator.dart';
-import 'package:ttg/widgets/app_dialog_box.dart';
+import 'package:ttg/widgets/widgets.dart';
 
 class StaffScreen extends StatelessWidget {
   const StaffScreen({super.key});
@@ -27,16 +25,16 @@ class StaffScreen extends StatelessWidget {
         },
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Staffs'),
+            title: const Text('Staffs'),
             actions: [
               IconButton(
                   onPressed: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => StaffAddingScreen()));
+                            builder: (context) => const StaffAddingScreen()));
                   },
-                  icon: Icon(Icons.add))
+                  icon: const Icon(Icons.add))
             ],
           ),
           body: Padding(
@@ -71,7 +69,7 @@ class StaffScreen extends StatelessWidget {
                                 staffName: state.staffs[index].name,
                                 courseName: state.staffs[index].courseName);
                           })
-                      : Center(
+                      : const Center(
                           child: Text('No Staff to show'),
                         );
                 }

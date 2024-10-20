@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ttg/models/timetable_entry_model.dart';
+import 'package:ttg/models/models.dart';
+
 
 Widget timeTableTile(List<TimeTableEntryModel> timeTableModel) {
   Map<String, List<TimeTableEntryModel>> groupedByDay = {};

@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ttg/blocs/course_blocs/course_bloc.dart';
-import 'package:ttg/blocs/staff_adding_blocs/select_course_blocs/select_course_bloc.dart';
-import 'package:ttg/blocs/staff_adding_blocs/select_subject_blocs/select_subject_bloc.dart';
-import 'package:ttg/blocs/staff_adding_blocs/staff_adding_bloc.dart';
-import 'package:ttg/blocs/staff_blocs/staff_bloc.dart';
+import 'package:ttg/blocs/blocs.dart';
 import 'package:ttg/screens/staff_adding_screen/widgets/teaching_suject_tile.dart';
-import 'package:ttg/styles/app_styles.dart';
+import 'package:ttg/styles/styles.dart';
 import 'package:ttg/utils/constants.dart';
-import 'package:ttg/widgets/app_button.dart';
-import 'package:ttg/widgets/app_circular_progress_indicator.dart';
-import 'package:ttg/widgets/app_dropdown_button.dart';
-import 'package:ttg/widgets/app_textfield.dart';
+import 'package:ttg/widgets/widgets.dart';
 
 class StaffAddingScreen extends StatefulWidget {
   final bool? isForEdit;

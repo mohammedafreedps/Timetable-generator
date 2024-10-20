@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ttg/blocs/blocs.dart';
-import 'package:ttg/styles/app_styles.dart';
-import 'package:ttg/widgets/app_button.dart';
+import 'package:ttg/styles/styles.dart';
+import 'package:ttg/widgets/widgets.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -25,7 +24,7 @@ class LoginScreen extends StatelessWidget {
                 context.read<AuthBloc>().add(SignInWithGoogleButtonPressed());
               },
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             BlocBuilder<AuthBloc, AuthState>(
               builder: (context, state) {
                 if(state is AuthLoadingState){

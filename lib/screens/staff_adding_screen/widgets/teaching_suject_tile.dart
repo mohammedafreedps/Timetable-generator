@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ttg/styles/text_styles.dart';
+import 'package:ttg/styles/styles.dart';
 
 Widget teachingSubjectsTile(int index, String subjectName,Function? deleteFunction) {
   return Row(
