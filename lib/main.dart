@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ttg/blocs/course_blocs/course_bloc.dart';
+import 'package:ttg/blocs/dashboard_bloc/dashboard_bloc.dart';
 import 'package:ttg/blocs/staff_adding_blocs/select_course_blocs/select_course_bloc.dart';
 import 'package:ttg/blocs/staff_adding_blocs/select_subject_blocs/select_subject_bloc.dart';
 import 'package:ttg/blocs/staff_adding_blocs/staff_adding_bloc.dart';
@@ -44,6 +45,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SelectCourseBloc(),
+        ),
+        BlocProvider(
+          create: (context) => DashboardBloc()..add(LoadNeededDatasEvent()),
         ),
       ],
       child: MaterialApp(
