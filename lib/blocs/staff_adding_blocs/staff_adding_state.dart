@@ -5,11 +5,11 @@ sealed class StaffAddingState {}
 
 final class StaffAddingInitial extends StaffAddingState {}
 
-class AddedSubjectsState extends StaffAddingState{
+final class AddedSubjectsState extends StaffAddingState{
   final List<String> subjects;
   AddedSubjectsState({required this.subjects});
 }
 
-class StaffDataSavingState extends StaffAddingState{}
+final class StaffDataSavingState extends StaffAddingState{}
 
-class StaffDataSavedState extends StaffAddingState{}
+final class StaffDataSavedState extends StaffAddingState{}

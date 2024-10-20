@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:ttg/blocs/course_blocs/course_bloc.dart';
-import 'package:ttg/repositories/course_data_handling.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ttg/blocs/blocs.dart';
+import 'package:ttg/repositories/repositories.dart';
 
 part 'course_adding_event.dart';
 part 'course_adding_state.dart';
@@ -11,7 +11,7 @@ class CourseAddingBloc extends Bloc<CourseAddingEvent, CourseAddingState> {
   CourseAddingBloc() : super(CourseAddingInitial()) {
      
     on<AddButtonClickedEvent>((event, emit) { 
-      addedSubjects.add(event.subjectName);
+      addedSubjects.add(event.subjectName.trim());
       emit(AddedSubjectShowState(addedSubjects: addedSubjects));
     });
 
@@ -38,4 +38,3 @@ class CourseAddingBloc extends Bloc<CourseAddingEvent, CourseAddingState> {
     });
   }
 }
-// on<>((event,emit){});

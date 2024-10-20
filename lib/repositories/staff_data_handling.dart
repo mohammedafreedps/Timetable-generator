@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ttg/models/models.dart'; 
+import 'package:ttg/models/models.dart';
 
 class StaffDataHandling {
   static Future<void> addStaffToDatabase(String name, String courseName, List<String> subjects) async {

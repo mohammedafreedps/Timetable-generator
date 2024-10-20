@@ -6,6 +6,7 @@ import 'package:ttg/screens/courses_screen/widgets/courses_tile.dart';
 import 'package:ttg/styles/app_styles.dart';
 import 'package:ttg/utils/constants.dart';
 import 'package:ttg/widgets/app_circular_progress_indicator.dart';
+import 'package:ttg/widgets/app_dialog_box.dart';
 
 class CoursesScreen extends StatelessWidget {
   const CoursesScreen({super.key});
@@ -53,17 +54,24 @@ class CoursesScreen extends StatelessWidget {
                           itemCount: state.courses.length,
                           itemBuilder: (context, index) {
                             return coursesTile(() {
-                              context.read<CourseBloc>().add(
-                                  DeleteCourseButtonClickedEvent(
-                                      documentId:
-                                          state.courses[index].courseID));
+                              appDialogBox(
+                                  context: context,
+                                  title:
+                                      'Do you really Want to delete this Course',
+                                  yesFunction: () {
+                                    context.read<CourseBloc>().add(
+                                        DeleteCourseButtonClickedEvent(
+                                            documentId:
+                                                state.courses[index].courseID));
+                                  });
                             }, () {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (_) => CoursesAddingScreen(
                                         isForEdit: true,
                                         index: index,
                                       )));
-                            }, state.courses[index].subjects,state.courses[index].courseName);
+                            }, state.courses[index].subjects,
+                                state.courses[index].courseName);
                           })
                       : const Center(
                           child: Text('No data to show'),

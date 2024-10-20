@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:ttg/models/tutors_model.dart';
-import 'package:ttg/repositories/staff_data_handling.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ttg/models/models.dart';
+import 'package:ttg/repositories/repositories.dart';
 
 part 'staff_event.dart';
 part 'staff_state.dart';

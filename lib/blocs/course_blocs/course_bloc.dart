@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:ttg/models/courses_model.dart';
-import 'package:ttg/repositories/course_data_handling.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ttg/models/models.dart';
+import 'package:ttg/repositories/repositories.dart';
 
 part 'course_event.dart';
 part 'course_state.dart';
@@ -22,4 +22,3 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
 
   }
 }
-// on<>((event,emit){});

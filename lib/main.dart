@@ -1,15 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ttg/blocs/course_blocs/course_bloc.dart';
-import 'package:ttg/blocs/dashboard_bloc/dashboard_bloc.dart';
-import 'package:ttg/blocs/staff_adding_blocs/select_course_blocs/select_course_bloc.dart';
-import 'package:ttg/blocs/staff_adding_blocs/select_subject_blocs/select_subject_bloc.dart';
-import 'package:ttg/blocs/staff_adding_blocs/staff_adding_bloc.dart';
-import 'package:ttg/blocs/staff_blocs/staff_bloc.dart';
 import 'package:ttg/screens/home_screen/home_screen.dart';
 import 'package:ttg/screens/login_screen/login_screen.dart';
-
 import 'blocs/blocs.dart';
 
 void main() async {
@@ -51,12 +44,13 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: BlocBuilder<AuthBloc, AuthState>(
           builder: (context, state) {
             if (state is AuthenticatedState) {
-              return HomeScreen();
+              return const HomeScreen();
             } else {
-              return LoginScreen();
+              return const LoginScreen();
             }
           },
         ),

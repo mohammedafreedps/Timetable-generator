@@ -1,5 +1,5 @@
-import 'package:ttg/models/models.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ttg/models/models.dart';
 
 class CourseDataHandling {
   static Future<void> addCourseToDatabase(

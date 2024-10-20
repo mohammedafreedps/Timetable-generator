@@ -1,6 +1,8 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:ttg/blocs/course_blocs/course_bloc.dart';
+
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ttg/blocs/blocs.dart';
 
 part 'select_course_event.dart';
 part 'select_course_state.dart';
@@ -29,7 +31,11 @@ class SelectCourseBloc extends Bloc<SelectCourseEvent, SelectCourseState> {
     });
 
     on<CousesSelectingEvent>((event, emit) {
-      selectedCourse = event.selectedCourses;
+      if (event.selectedCourses != null) {
+        selectedCourse = event.selectedCourses!.trim();
+      } else {
+        selectedCourse = event.selectedCourses;
+      }
       selectedCourseId = CourseBloc.courses
           .where((c) => c.courseName == selectedCourse)
           .toList()[0]

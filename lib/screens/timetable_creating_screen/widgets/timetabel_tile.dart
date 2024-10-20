@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ttg/models/timetable_model.dart';
+import 'package:ttg/models/timetable_entry_model.dart';
 
-Widget timeTableTile(List<TimetableModel> timeTableModel) {
-  Map<String, List<TimetableModel>> groupedByDay = {};
+Widget timeTableTile(List<TimeTableEntryModel> timeTableModel) {
+  Map<String, List<TimeTableEntryModel>> groupedByDay = {};
   for (var entry in timeTableModel) {
     groupedByDay.putIfAbsent(entry.day, () => []).add(entry);
   }

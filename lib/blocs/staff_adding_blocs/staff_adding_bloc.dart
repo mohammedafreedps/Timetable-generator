@@ -1,9 +1,8 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:ttg/blocs/staff_adding_blocs/select_course_blocs/select_course_bloc.dart';
-import 'package:ttg/blocs/staff_adding_blocs/select_subject_blocs/select_subject_bloc.dart';
-import 'package:ttg/models/courses_model.dart';
-import 'package:ttg/repositories/staff_data_handling.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ttg/blocs/blocs.dart';
+import 'package:ttg/models/models.dart';
+import 'package:ttg/repositories/repositories.dart';
 
 part 'staff_adding_event.dart';
 part 'staff_adding_state.dart';

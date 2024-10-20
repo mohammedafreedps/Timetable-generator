@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ttg/blocs/staff_blocs/staff_bloc.dart';
 import 'package:ttg/models/courses_model.dart';
-import 'package:ttg/models/timetable_model.dart';
+import 'package:ttg/models/timetable_entry_model.dart';
 import 'package:ttg/screens/timetable_creating_screen/widgets/timetabel_tile.dart';
 import 'package:ttg/services/timeTableCreator.dart';
 import 'package:ttg/utils/constants.dart';
@@ -16,7 +16,7 @@ class TimetableCreatingScreen extends StatefulWidget {
 }
 
 class _TimetableCreatingScreenState extends State<TimetableCreatingScreen> {
-  List<TimetableModel> timetable = [];
+  List<TimeTableEntryModel> timetable = [];
   @override
   void initState() {
     timetable = generateCourseTimeTable(widget.courseModel, StaffBloc.staffs);

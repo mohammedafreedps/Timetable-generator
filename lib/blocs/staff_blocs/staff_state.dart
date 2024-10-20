@@ -10,6 +10,6 @@ final class StaffDetailsLoadedState extends StaffState{
   StaffDetailsLoadedState({required this.staffs});
 }
 
-class StaffDetailsLoadingState extends StaffState{}
+final class StaffDetailsLoadingState extends StaffState{}
 
-class StaffDeletedState extends StaffState{}
+final class StaffDeletedState extends StaffState{}

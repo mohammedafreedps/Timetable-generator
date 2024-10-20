@@ -5,11 +5,11 @@ sealed class CourseState {}
 
 final class CourseInitial extends CourseState {}
 
-class FechedCourseDataState extends CourseState{
+final class FechedCourseDataState extends CourseState{
   final List<CoursesModel> courses;
   FechedCourseDataState({required this.courses});
 }
 
-class CourseDeletingState extends CourseState{}
+final class CourseDeletingState extends CourseState{}
 
-class CourseDeletedState extends CourseState{}
+final class CourseDeletedState extends CourseState{}

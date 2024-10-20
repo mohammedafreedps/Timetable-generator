@@ -5,11 +5,11 @@ sealed class CourseAddingState {}
 
 final class CourseAddingInitial extends CourseAddingState {}
 
-class AddedSubjectShowState extends CourseAddingState{
+final class AddedSubjectShowState extends CourseAddingState{
   final List<String> addedSubjects;
   AddedSubjectShowState({required this.addedSubjects});
 }
 
-class CourseSavingState extends CourseAddingState{}
+final class CourseSavingState extends CourseAddingState{}
 
-class CourseSavedState extends CourseAddingState{}
+final class CourseSavedState extends CourseAddingState{}
