@@ -5,9 +5,11 @@ Widget teachingSubjectsTile(int index, String subjectName,Function? deleteFuncti
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-    Text(
-      '$index. $subjectName',
-      style: AppTextStyles.secondaryStyle.copyWith(fontSize: 18),
+    Flexible(
+      child: Text(
+        '$index. $subjectName',
+        style: AppTextStyles.secondaryStyle.copyWith(fontSize: 18),
+      ),
     ),
     IconButton(onPressed: () {
       if(deleteFunction != null){

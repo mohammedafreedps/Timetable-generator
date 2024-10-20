@@ -3,9 +3,11 @@ import 'package:ttg/styles/app_styles.dart';
 
 Widget addedSubjectsTile(Function function, int index, String title) {
   return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-    Text(
-      '${index.toString()}. $title',
-      style: AppTextStyles.secondaryStyle.copyWith(fontSize: 18),
+    Flexible(
+      child: Text(
+        '${index.toString()}. $title',
+        style: AppTextStyles.secondaryStyle.copyWith(fontSize: 18),
+      ),
     ),
     IconButton(
         onPressed: () {

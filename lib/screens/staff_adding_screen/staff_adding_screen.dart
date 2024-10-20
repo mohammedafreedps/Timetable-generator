@@ -111,8 +111,8 @@ class _StaffAddingScreenState extends State<StaffAddingScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BlocBuilder<SelectSubjectBloc, SelectSubjectState>(
                         builder: (context, state) {
