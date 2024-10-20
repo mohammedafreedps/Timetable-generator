@@ -23,7 +23,7 @@ class TimeTableEntryModel {
     };
   }
 
-  factory TimeTableEntryModel.fromMap(Map<String, dynamic> map, String id) {
+  factory TimeTableEntryModel.fromMap(Map<String, dynamic> map) {
     return TimeTableEntryModel(
       courseName: map['courseName'] ?? '', 
       day: map['day'] ?? '',

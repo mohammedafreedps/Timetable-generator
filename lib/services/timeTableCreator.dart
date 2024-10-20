@@ -26,7 +26,7 @@ List<TimeTableEntryModel> generateCourseTimeTable(CoursesModel course, List<Tuto
 
       TutorsModel? tutor = tutors.firstWhere(
         (staff) => staff.subjects.contains(subject),
-        orElse: () => TutorsModel(id: 'unknown', name: 'Unknown', courseName: 'Unknown', subjects: []),
+        orElse: () => TutorsModel(id: 'unknown', name: 'No Enough Staffs', courseName: 'Unknown', subjects: []),
       );
 
       TimeTableEntryModel entry = TimeTableEntryModel(

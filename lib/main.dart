@@ -42,6 +42,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => DashboardBloc()..add(LoadNeededDatasEvent()),
         ),
+        BlocProvider(
+          create: (context) => TimetableBloc(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
