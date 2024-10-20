@@ -1,9 +1,5 @@
 import 'dart:math';
-
-import 'package:ttg/models/courses_model.dart';
-import 'package:ttg/models/timetable_entry_model.dart';
-import 'package:ttg/models/tutors_model.dart';
-
+import 'package:ttg/models/models.dart';
 
 List<TimeTableEntryModel> generateCourseTimeTable(CoursesModel course, List<TutorsModel> tutors) {
   List<String> days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
@@ -30,7 +26,7 @@ List<TimeTableEntryModel> generateCourseTimeTable(CoursesModel course, List<Tuto
 
       TutorsModel? tutor = tutors.firstWhere(
         (staff) => staff.subjects.contains(subject),
-        orElse: () => TutorsModel(id: 'unknown', name: 'Unknown', courseName: 'Unknown', subjects: []), // Handle if no tutor found
+        orElse: () => TutorsModel(id: 'unknown', name: 'Unknown', courseName: 'Unknown', subjects: []),
       );
 
       TimeTableEntryModel entry = TimeTableEntryModel(

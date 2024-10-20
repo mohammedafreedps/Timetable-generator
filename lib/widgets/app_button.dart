@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ttg/styles/app_styles.dart';
+import 'package:ttg/styles/styles.dart';
 import 'package:ttg/utils/constants.dart';
-
 
 class AppButton extends StatelessWidget {
   final double width;
